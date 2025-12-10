@@ -14,6 +14,23 @@ root.render(
     <App />
   </React.StrictMode>
 );
+    // server.js (example)
+    const express = require('express');
+    const path = require('path');
+    const app = express();
+    const port = process.env.PORT || 5000;
+
+    // Serve static files from the React build folder
+    app.use(express.static(path.join(__dirname, 'client/build'))); // Assuming 'client' is your CRA folder
+
+    // Handle any requests that don't match the static files
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+
+    app.listen(port, () => {
+        console.log(`Server listening on port ${port}`);
+    });
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
