@@ -8,6 +8,8 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 
+
+
 function App() {
   const [cart, setCart] = useState([]);
 
